@@ -69,6 +69,11 @@ spec:
                   create: true
                   annotations:
                     eks.amazonaws.com/role-arn: {{.metadata.annotations.argo_workflows_role_arn}}
+                rbac:
+                  create: true
+                controller:
+                  workflowNamespaces:
+                    - argo-workflows
       destination:
         namespace: '{{default "argo-workflows" .metadata.annotations.argo_workflows_namespace}}'
         name: '{{.name}}'
