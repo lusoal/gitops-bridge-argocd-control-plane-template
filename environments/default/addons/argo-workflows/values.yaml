@@ -4,10 +4,6 @@ controller:
     - default
   metricsConfig:
     enabled: true
-workflow:
-  serviceAccount:
-    # -- Specifies whether a service account should be created in namespaces controller.workflowNamespaces
-    create: true
 server:
   # -- Run the argo server in "secure" mode. Configure this value instead of `--secure` in extraArgs.
   ## See the following documentation for more details on secure mode:
