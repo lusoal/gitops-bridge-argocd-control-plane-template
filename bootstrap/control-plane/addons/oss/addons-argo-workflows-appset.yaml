@@ -57,6 +57,11 @@ spec:
               - $values/{{.metadata.annotations.addons_repo_basepath}}environments/{{.metadata.labels.environment}}/addons/{{.values.addonChart}}/values.yaml
               - $values/{{.metadata.annotations.addons_repo_basepath}}clusters/{.{name}}/addons/{{.values.addonChart}}/values.yaml
             values: |
+              artifactRepository:
+                s3:
+                  bucket: {{.metadata.annotations.argo_workflows_bucket_state}}
+                  region: {{.metadata.annotations.aws_region}}
+                  endpoint: s3.amazonaws.com
               workflow:
                 serviceAccount:
                   # -- Specifies whether a service account should be created in namespaces controller.workflowNamespaces
