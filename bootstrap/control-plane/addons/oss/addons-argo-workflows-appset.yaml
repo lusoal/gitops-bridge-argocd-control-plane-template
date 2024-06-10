@@ -57,6 +57,7 @@ spec:
               - $values/{{.metadata.annotations.addons_repo_basepath}}environments/{{.metadata.labels.environment}}/addons/{{.values.addonChart}}/values.yaml
               - $values/{{.metadata.annotations.addons_repo_basepath}}clusters/{.{name}}/addons/{{.values.addonChart}}/values.yaml
             values: |
+              useStaticCredentials: false
               artifactRepository:
                 s3:
                   bucket: {{.metadata.annotations.argo_workflows_bucket_state}}
